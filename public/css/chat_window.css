@@ -1,0 +1,13 @@
+.chat_window{
+    border: solid 2px;
+}
+.chat_user_img{
+    border-radius: 50%;
+    margin-left: 5px;
+    width: 64px;
+    height: 64px;
+
+}
+.chat_user_name{
+
+}

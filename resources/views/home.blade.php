@@ -2,9 +2,7 @@
 
 @section('content')
     {{--Chat's style--}}
-
-
-    {{--Chat's JS--}}
+    <link href="{{asset('css/chat_window.css')}}" rel="stylesheet">
 
     <div class="container">
         {{--<div class="chat_window">--}}
@@ -35,7 +33,28 @@
         {{--</li>--}}
         {{--</div>--}}
         {{--</div>--}}
+        <div class="chat_window">
+            <div class="row ">
+                <div class="col-xs-12 col-md-12">
+                    {{-- Заглушки для фото профиля и имени собеседника --}}
+                    <img class="chat_user_img" src="http://wearesmile.com/assets/themes/s5/img/logo.png">
+                    <span style="text-align: right" class="chat_user_name">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                    <img src="{{asset('icons/ic_more_vert_black_24px.svg')}}" style="cursor: pointer; position: absolute;
+                    right: 30px; top: 20px; z-index: -1;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
 
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(window).ready(function () {
+               console.log("chat module loaded");
+            });
+        </script>
 
 
     </div>

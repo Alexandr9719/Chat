@@ -35,16 +35,16 @@
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                <input alt="submit" src="{{asset('icons/ic_settings_black_18px.svg')}}" type="image" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </input>
 
                 @if(\Illuminate\Support\Facades\Auth::check())
-                    <img src="{{asset('icons/menu_icon.svg')}}" class="navbar-brand" id="check-side-nav" style="cursor: pointer" onclick="openNav()">
+                    <img src="{{asset('icons/ic_menu_black_24px.svg')}}" class="navbar-brand" id="check-side-nav" style="cursor: pointer" onclick="openNav()">
                 @endif
             <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/welcome') }}">
@@ -100,11 +100,13 @@
 <script>
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     }
 
     /* Set the width of the side navigation to 0 */
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
+        document.body.style.backgroundColor = "#f5f8fa";
     }
     $(document).ready(function () {
         console.log('app loaded')
