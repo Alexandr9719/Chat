@@ -20,3 +20,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('welcome', function (){
     return view('/welcome');
 })->name('welcome');
+
+Route::get('blade', function (){
+    return view('sidenav');
+});
