@@ -12,7 +12,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{asset('css/side_nav.css')}}" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
@@ -110,6 +109,7 @@
     $(document).ready(function () {
         console.log('app loaded')
         $("#check-side-nav").click(openNav);
+        $("html, body").animate({ scrollTop: $(document).height() }, 1);
     });
 </script>
 </body>

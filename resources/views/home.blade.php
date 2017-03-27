@@ -4,6 +4,7 @@
     @parent
     {{-- SideNav styles --}}
     <link href="{{asset('css/w3.css')}}" rel="stylesheet">
+    <link href="{{asset('css/side_nav.css')}}" rel="stylesheet">
 
     <div id="mySidenav" class="sidenav">
         <div style="width: 100%; height: 50px; color: black;">
@@ -14,7 +15,6 @@
         </div>
         <div class="w3-container">
             <h2>Friend's List</h2>
-            {{--<p>An example of how to create an avatar list:</p>--}}
 
             <ul class="w3-ul w3-card-4">
                 <li class="w3-padding-16">
@@ -53,218 +53,206 @@
     {{--Chat's style--}}
     <link href="{{asset('css/chat_window.css')}}" rel="stylesheet">
 
-    {{--<div class="container">--}}
-    {{--<div class="chat_window">--}}
-    {{--<div class="row" style="color:#5b84c6;">--}}
-    {{--<div style="height: 63px" class="col-xs-12 col-md-12">--}}
-    {{--<div class="top-chat">--}}
-    {{-- Заглушки для фото профиля и имени собеседника --}}
-    {{--<img class="chat_user_img" src="{{asset('icons/avatars/img_avatar_man.png')}}">--}}
-    {{--<span style="position: absolute; z-index: -1; left: 100px; top: 20px;"--}}
-    {{--class="chat_user_name">{{Auth::user()->name}}</span>--}}
-    {{--<img class="settings" src="{{asset('icons/ic_more_vert_black_24px.svg')}}"--}}
-    {{--style="cursor: pointer; position: absolute; right: 30px; top: 20px; z-index: 999;">--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    <div class="chat">
-        {{--<div class="chat-top">--}}
-        {{--<div class="container">--}}
-        {{--<div class="panel panel-default">--}}
-        {{--<div class="panel-body">--}}
-        {{--<img class="chat_user_img" src="{{asset('icons/avatars/img_avatar_man.png')}}">--}}
-        {{--{{Auth::user()->name}}--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-xs-12">
-                Level 1: .col-sm-9
-                <div class="chat-messages"
-                     style="overflow-y: auto; overflow-x: hidden;">
-                    <!-- Left-aligned media object -->
-                    <div class="media">
-                        <div class="media-left">
-                            <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                                 class="media-object img-circle"
-                                 style="width:64px; height: 64px">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Left-aligned</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <!-- Right-aligned media object -->
-                    <div class="media">
-                        <div class="media-body" style="text-align: right;">
-                            <h4 class="media-heading">Right-aligned</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="media-right">
-                            <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                                 class="media-object img-circle"
-                                 style="width:64px; height: 64px;">
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- Left-aligned media object -->
-                    <div class="media">
-                        <div class="media-left">
-                            <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                                 class="media-object img-circle"
-                                 style="width:64px; height: 64px">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Left-aligned</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <!-- Right-aligned media object -->
-                    <div class="media">
-                        <div class="media-body" style="text-align: right;">
-                            <h4 class="media-heading">Right-aligned</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="media-right">
-                            <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                                 class="media-object img-circle"
-                                 style="width:64px; height: 64px;">
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- Left-aligned media object -->
-                    <div class="media">
-                        <div class="media-left">
-                            <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                                 class="media-object img-circle"
-                                 style="width:64px; height: 64px">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Left-aligned</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <!-- Right-aligned media object -->
-                    <div class="media">
-                        <div class="media-body" style="text-align: right;">
-                            <h4 class="media-heading">Right-aligned</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="media-right">
-                            <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                                 class="media-object img-circle"
-                                 style="width:64px; height: 64px;">
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- Left-aligned media object -->
-                    <div class="media">
-                        <div class="media-left">
-                            <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                                 class="media-object img-circle"
-                                 style="width:64px; height: 64px">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Left-aligned</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <!-- Right-aligned media object -->
-                    <div class="media">
-                        <div class="media-body" style="text-align: right;">
-                            <h4 class="media-heading">Right-aligned</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="media-right">
-                            <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                                 class="media-object img-circle"
-                                 style="width:64px; height: 64px;">
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- Left-aligned media object -->
-                    <div class="media">
-                        <div class="media-left">
-                            <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                                 class="media-object img-circle"
-                                 style="width:64px; height: 64px">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Left-aligned</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <!-- Right-aligned media object -->
-                    <div class="media">
-                        <div class="media-body" style="text-align: right;">
-                            <h4 class="media-heading">Right-aligned</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="media-right">
-                            <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                                 class="media-object img-circle"
-                                 style="width:64px; height: 64px;">
-                        </div>
-                    </div>
-                    <hr>
-                </div>
+    <div style="position: fixed;" class="chat">
+        <div class="chat-window">
+            <div class="container">
                 <div class="row">
-                    <div class="col-8 col-sm-6">
-                        Level 2: .col-8 .col-sm-6
+                    <div style="margin-top: 60px;" class="col-md-offset-2 col-md-8 col-xs-12">
+                        <div class="chat-messages"
+                             style="overflow-y: auto; overflow-x: hidden;">
+                            <!-- Left-aligned media object -->
+                            <div class="media">
+                                <div class="media-left">
+                                    <img class="media-object img-circle"
+                                         style="width:64px; height: 64px"
+                                         src="{{asset('icons/avatars/img_avatar_unknown.png')}}">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Left-aligned</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <!-- Right-aligned media object -->
+                            <div class="media">
+                                <div class="media-body" style="text-align: right;">
+                                    <h4 class="media-heading">Right-aligned</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                                <div class="media-right">
+                                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
+                                         class="media-object img-circle"
+                                         style="width:64px; height: 64px;">
+                                </div>
+                            </div>
+                            <hr>
+                            <!-- Left-aligned media object -->
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
+                                         class="media-object img-circle"
+                                         style="width:64px; height: 64px">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Left-aligned</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <!-- Right-aligned media object -->
+                            <div class="media">
+                                <div class="media-body" style="text-align: right;">
+                                    <h4 class="media-heading">Right-aligned</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                                <div class="media-right">
+                                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
+                                         class="media-object img-circle"
+                                         style="width:64px; height: 64px;">
+                                </div>
+                            </div>
+                            <hr>
+                            <!-- Left-aligned media object -->
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
+                                         class="media-object img-circle"
+                                         style="width:64px; height: 64px">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Left-aligned</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <!-- Right-aligned media object -->
+                            <div class="media">
+                                <div class="media-body" style="text-align: right;">
+                                    <h4 class="media-heading">Right-aligned</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                                <div class="media-right">
+                                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
+                                         class="media-object img-circle"
+                                         style="width:64px; height: 64px;">
+                                </div>
+                            </div>
+                            <hr>
+                            <!-- Left-aligned media object -->
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
+                                         class="media-object img-circle"
+                                         style="width:64px; height: 64px">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Left-aligned</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <!-- Right-aligned media object -->
+                            <div class="media">
+                                <div class="media-body" style="text-align: right;">
+                                    <h4 class="media-heading">Right-aligned</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                                <div class="media-right">
+                                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
+                                         class="media-object img-circle"
+                                         style="width:64px; height: 64px;">
+                                </div>
+                            </div>
+                            <hr>
+                            <!-- Left-aligned media object -->
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
+                                         class="media-object img-circle"
+                                         style="width:64px; height: 64px">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Left-aligned</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <!-- Right-aligned media object -->
+                            <div class="media">
+                                <div class="media-body" style="text-align: right;">
+                                    <h4 class="media-heading">Right-aligned</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                                <div class="media-right">
+                                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
+                                         class="media-object img-circle"
+                                         style="width:64px; height: 64px;">
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        {{--<div style="position: fixed;" class="row">--}}
+                        {{--<div class="col-8 col-sm-6">--}}
+                        {{--Level 2: .col-8 .col-sm-6--}}
+
+                        {{--</div>--}}
+                        {{--<div class="col-4 col-sm-6">--}}
+                        {{--Level 2: .col-4 .col-sm-6--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
                     </div>
-                    <div class="col-4 col-sm-6">
-                        Level 2: .col-4 .col-sm-6
+                </div>
+
+            </div>
+        </div>
+        <footer class="chat-input"
+                style="position: fixed; bottom: 0px; left: 0px; right: 0px; width: 100%; height: 50px; z-index: 99;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8 col-xs-12">
+                        <form>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Input message here!">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <img src="{{asset('icons/ic_send_black_24px.svg')}}" class="chat-message-send">
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-
-        </div>
+        </footer>
     </div>
     <script>
         $(document).ready(function () {
-            var chat_selected = false;
-            if (chat_selected) {
-                $(".chat").hide();
-            }
             console.log("chat module loaded");
-            $(".settings").click(function () {
-                alert('Settings');
-            });
         });
 
     </script>

@@ -1,16 +1,23 @@
-.chat_window{
+.chat_window {
     border: solid 2px;
     height: auto;
 }
-.chat_user_img{
+
+.chat_user_img {
     border-radius: 50%;
     width: 64px;
     height: 64px;
 
 }
-.chat-top{
+
+.chat-top {
 
 }
-.chat-messages{
+
+.chat-messages {
+}
+
+.chat-input {
+
 }
 
