@@ -9,7 +9,8 @@
         "jasny/bootstrap": "^3.1",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "twbs/bootstrap": "^3.3"
+        "twbs/bootstrap": "^3.3",
+        "vinkla/pusher": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
