@@ -24,7 +24,7 @@
 <body>
 @yield('sidenav')
 <div id="app">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav style="position: fixed; top: 0; width: 100%;" class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
 
