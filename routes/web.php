@@ -35,16 +35,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('welcome', function (){
-//    $pusher = App::make('pusher');
-//    $pusher->trigger('my-channel', 'my-event', array('text' => 'Hello Chat Plus!!!'));
-//
-//    event(new TestEvent("Broadcasting via Pusher"));
-
     return view('/welcome');
 })->name('welcome');
 
-Route::get('blade', function (){
-    return view('sidenav');
-});
 
 
