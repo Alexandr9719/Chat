@@ -33,6 +33,8 @@ Route::get('/', 'WelcomeController@welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::post('/home', 'HomeController@postMessage');
+Route::post('/auth', 'HomeController@postAuth');
 
 Route::get('welcome', function (){
     return view('/welcome');
