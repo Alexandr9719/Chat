@@ -128,7 +128,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 col-xs-12">
-                    {{--<form class="send-message">--}}
                     <div class="input-group">
                         <input type="text" class="form-control text-message" placeholder="Input message here!">
                         <div class="input-group-btn">
@@ -137,28 +136,11 @@
                             </button>
                         </div>
                     </div>
-                    {{--</form>--}}
                 </div>
             </div>
         </div>
     </footer>
-    <script id="chat-message-template-right" type="text/template">
-        <div class="chat-message_right">
-            <div class="media">
-                <div class="media-body" style="text-align: right;">
-                    <h4 class="media-heading message-author"></h4>{{-- В тэг добавляется имя написавшего --}}
-                    <p class="message-text"></p> {{-- В тэг добавляется текст сообщения --}}
-                </div>
-                <div class="media-right">
-                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                         class="media-object img-circle"
-                         style="width:64px; height: 64px;">
-                </div>
-            </div>
-            <hr>
-        </div>
-    </script>
-    <script id="chat-message-template-left" type="text/template">
+    <div class="chat-message-template-left" hidden>
         <div class="chat-message-left">
             <div class="media">
                 <div class="media-left">
@@ -173,7 +155,23 @@
             </div>
             <hr>
         </div>
-    </script>
+    </div>
+    <div class="chat-message-template-right" hidden>
+        <div class="chat-message_right">
+            <div class="media">
+                <div class="media-body" style="text-align: right;">
+                    <h4 class="media-heading message-author"></h4>{{-- В тэг добавляется имя написавшего --}}
+                    <p class="message-text"></p> {{-- В тэг добавляется текст сообщения --}}
+                </div>
+                <div class="media-right">
+                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
+                         class="media-object img-circle"
+                         style="width:64px; height: 64px;">
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
     <script>
         $(document).ready(function () {
             console.log("chat module loaded");
@@ -224,18 +222,39 @@
             function add_message(data) {
                 console.log('message added');
                 console.log(data);
-                var a = '{{Auth::user()->name}}';
                 if (data.username == '{{Auth::user()->name}}') {
-                    var el = createMessageRight();
-                    el.find('.message-author').html(data.username);
-                    el.find('.message-text').html(data.text);
-                    console.log(data.username);
+                    var message = "<div class='chat-message_right'>" +
+                        "<div class='media'>" +
+                            "<div class='media-body'  style='text-align: right;'>" +
+                                "<h4 class='media-heading message-author'>"+ data.username +"</h4>" +
+                                "<p class='message-text'>"+ data.text +"</p>" +
+                            "</div>" +
+                            "<div class='media-right'>" +
+                                "<img src='{{asset('icons/avatars/img_avatar_unknown.png')}}' " +
+                                "class='media-object img-circle' " +
+                                "style='width:64px; height: 64px;'> " +
+                            "</div>" +
+                            "</div>" +
+                            "<hr>" +
+                        "</div>";
                 }
-                else
+                else{
                     console.log(data.username);
-                var messages = $('.chat-messages');
-                console.log(el);
-                messages.append(el);
+                    var message = "<div class='chat-message-left'>" +
+                        "<div class='media'>" +
+                        "<div class='media-left'>" +
+                        "<img class='media-object img-circle' style='width:64px; height: 64px' src='{{asset('icons/avatars/img_avatar_unknown.png')}}'>" +
+                        "</div>" +
+                        "<div class='media-body'>" +
+                        "<h4 class='media-heading message-author'>"+ data.username +"</h4>" +
+                        "<p class='message-text'>"+ data.text +"</p>" +
+                        "</div>" +
+                        "</div>" +
+                        "<hr>" +
+                        "</div>";
+                }
+
+                $('.chat-messages').append(message);
 //                var el = createMessageEl();
 //                el.find('.media-heading').html(data.username);
 //                el.find('p').html(data.text);
@@ -243,14 +262,17 @@
 //                var messages = $('.chat-messages');
 //                messages.append(el);
 
-                messages.scrollTop(messages[0].scrollHeight);
+                //messages.scrollTop(messages[0].scrollHeight);
 
 
             }
+
             function createMessageRight() {
-                var text = $('#chat-message-template-right').html();
-                var el = $(text);
-                return el;
+                return $('#chat-message-template-right');
+//                var text =
+//                console.log(text);
+//                var el = $(text);
+//                return el;
             }
 
             function createMessageEl() {
