@@ -17,24 +17,14 @@ class HomeController extends Controller
     var $chatChannel;
 
     const DEFAULT_CHAT_CHANNEL = 'private-chat';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
     public function __construct()
     {
         $this->pusher = App::make('pusher');
         $this->chatChannel = self::DEFAULT_CHAT_CHANNEL;
         $this->middleware('auth');
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         return view('home', ['chatChannel' => $this->chatChannel]);
@@ -51,10 +41,6 @@ class HomeController extends Controller
     }
 
     public function postAuth(){
-//        $channelName = $request->input('channel-name');
-//        $socketId = $request->input('socket_id');
-//        $auth = $this->pusher->socket_auth($channelName, $socketId);
-//        return responce
         return $this->pusher->socket_auth($_POST['channel_name'], $_POST['socket_id']);
 
     }
