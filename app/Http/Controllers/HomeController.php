@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Contacts;
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
@@ -16,7 +12,7 @@ class HomeController extends Controller
     var $user;
     var $chatChannel;
 
-    const DEFAULT_CHAT_CHANNEL = 'private-chat';
+    const DEFAULT_CHAT_CHANNEL = 'presence-chat';
     
     public function __construct()
     {
@@ -41,7 +37,9 @@ class HomeController extends Controller
     }
 
     public function postAuth(){
-        return $this->pusher->socket_auth($_POST['channel_name'], $_POST['socket_id']);
+//        return $this->pusher->socket_auth($_POST['channel_name'], $_POST['socket_id']);
+        $presence_data = ['name' => Auth::user()->name];
+        return $this->pusher->presence_auth($_POST['channel_name'], $_POST['socket_id'], Auth::id(), $presence_data);
 
     }
 }

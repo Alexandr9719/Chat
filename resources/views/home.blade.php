@@ -16,34 +16,34 @@
         <div class="w3-container">
             <h2>Friend's List</h2>
 
-            <ul class="w3-ul w3-card-4">
-                <li class="w3-padding-16">
-      <span onclick="this.parentElement.style.display='none'"
-            class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>
-                    <img src="{{asset('icons/avatars/img_avatar_man.png')}}"
-                         class="w3-left w3-circle w3-margin-right"
-                         style="width:60px">
-                    <span class="w3-xlarge">Mike</span><br>
-                    <span>Status</span>
-                </li>
-                <li class="w3-padding-16">
-      <span onclick="this.parentElement.style.display='none'"
-            class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>
-                    <img src="{{asset('icons/avatars/img_avatar_woman.png')}}"
-                         class="w3-left w3-circle w3-margin-right"
-                         style="width:60px">
-                    <span class="w3-xlarge">Jill</span><br>
-                    <span>Status</span>
-                </li>
-                <li class="w3-padding-16">
-      <span onclick="this.parentElement.style.display='none'"
-            class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>
-                    <img src="{{asset('icons/avatars/img_avatar_woman.png')}}"
-                         class="w3-left w3-circle w3-margin-right"
-                         style="width:60px">
-                    <span class="w3-xlarge">Jane</span><br>
-                    <span>Status</span>
-                </li>
+            <ul class="w3-ul w3-card-4 friends_list"> {{-- Сюда добавляются контакты в сети --}}
+                {{--<li class="w3-padding-16">--}}
+      {{--<span onclick="this.parentElement.style.display='none'"--}}
+            {{--class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>--}}
+                    {{--<img src="{{asset('icons/avatars/img_avatar_man.png')}}"--}}
+                         {{--class="w3-left w3-circle w3-margin-right"--}}
+                         {{--style="width:60px">--}}
+                    {{--<span class="w3-xlarge">Mike</span><br>--}}
+                    {{--<span>Status</span>--}}
+                {{--</li>--}}
+                {{--<li class="w3-padding-16">--}}
+      {{--<span onclick="this.parentElement.style.display='none'"--}}
+            {{--class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>--}}
+                    {{--<img src="{{asset('icons/avatars/img_avatar_woman.png')}}"--}}
+                         {{--class="w3-left w3-circle w3-margin-right"--}}
+                         {{--style="width:60px">--}}
+                    {{--<span class="w3-xlarge">Jill</span><br>--}}
+                    {{--<span>Status</span>--}}
+                {{--</li>--}}
+                {{--<li class="w3-padding-16">--}}
+      {{--<span onclick="this.parentElement.style.display='none'"--}}
+            {{--class="w3-closebtn w3-padding w3-margin-right w3-medium">&times;</span>--}}
+                    {{--<img src="{{asset('icons/avatars/img_avatar_woman.png')}}"--}}
+                         {{--class="w3-left w3-circle w3-margin-right"--}}
+                         {{--style="width:60px">--}}
+                    {{--<span class="w3-xlarge">Jane</span><br>--}}
+                    {{--<span>Status</span>--}}
+                {{--</li>--}}
             </ul>
         </div>
     </div>
@@ -66,9 +66,9 @@
         <div class="chat-window">
             <div class="container">
                 <div class="row">
-                    <div style="margin-top: 60px;" class="col-md-offset-2 col-md-8 col-xs-12">
+                    <div style="margin-top: 60px; margin-bottom: 20px;" class="col-md-offset-2 col-md-8 col-xs-12">
                         <div class="chat-messages"
-                             style="overflow-y: auto; overflow-x: hidden;">
+                             style="overflow-y: auto; overflow-x: hidden; bottom: auto">
                             <div class="chat-message-left">
                                 <!-- Left-aligned media object -->
                                 <div class="media">
@@ -131,41 +131,8 @@
             </div>
         </div>
     </footer>
-    <div class="chat-message-template-left" hidden>
-        <div class="chat-message-left">
-            <div class="media">
-                <div class="media-left">
-                    <img class="media-object img-circle"
-                         style="width:64px; height: 64px"
-                         src="{{asset('icons/avatars/img_avatar_unknown.png')}}">
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading message-author"></h4>{{-- Имя автора сообщения --}}
-                    <p class="message-text"></p>{{-- Текст сообщения --}}
-                </div>
-            </div>
-            <hr>
-        </div>
-    </div>
-    <div class="chat-message-template-right" hidden>
-        <div class="chat-message_right">
-            <div class="media">
-                <div class="media-body" style="text-align: right;">
-                    <h4 class="media-heading message-author"></h4>{{-- В тэг добавляется имя написавшего --}}
-                    <p class="message-text"></p> {{-- В тэг добавляется текст сообщения --}}
-                </div>
-                <div class="media-right">
-                    <img src="{{asset('icons/avatars/img_avatar_unknown.png')}}"
-                         class="media-object img-circle"
-                         style="width:64px; height: 64px;">
-                </div>
-            </div>
-            <hr>
-        </div>
-    </div>
     <script>
         $(document).ready(function () {
-            console.log("chat module loaded");
 
             Pusher.log = function (msg) {
                 console.log(msg);
@@ -175,7 +142,6 @@
 
                 $(".text-message").keypress(function (e) {
                     if (e.which == 13) {
-                        console.log('successfully send');
                         sendMessage();
                     }
                 });
@@ -188,7 +154,6 @@
                     return false;
 
                 var data = {chat_text: message_text};
-                console.log(data);
 
                 $.ajaxSetup({
                     headers: {
@@ -207,12 +172,9 @@
 
             function sendMessageSuccess() {
                 $(".text-message").val('');
-                console.log('message send successfully');
             }
 
             function add_message(data) {
-                console.log('message added');
-                console.log(data);
                 if (data.username == '{{Auth::user()->name}}') {
                     var message = "<div class='chat-message_right'>" +
                         "<div class='media'>" +
@@ -230,8 +192,7 @@
                         "</div>";
                 }
                 else{
-                    console.log(data.username);
-                    var message = "<div class='chat-message-left'>" +
+                    message = "<div class='chat-message-left'>" +
                         "<div class='media'>" +
                         "<div class='media-left'>" +
                         "<img class='media-object img-circle' style='width:64px; height: 64px' src='{{asset('icons/avatars/img_avatar_unknown.png')}}'>" +
@@ -246,10 +207,21 @@
                 }
 
                 $('.chat-messages').append(message);
-                
-                //messages.scrollTop(messages[0].scrollHeight);
+                $('html, body').animate({scrollTop: $(document).height()}, 1000);
+
+            }
 
 
+            function showFriendList (member) {
+                var friend =
+                    "<li class='w3-padding-16'>" +
+                        "<img src='{{asset('icons/avatars/img_avatar_man.png')}}' " +
+                        "class='w3-left w3-circle w3-margin-right' " +
+                        "style='width:60px'> " +
+                        "<span class='w3-xlarge'>" + member.info.name + "</span><br>" +
+                        "<span>" + member.id + "</span>" +
+                    "</li>";
+                $('.friends_list').append(friend);
             }
 
             $(init);
@@ -266,10 +238,25 @@
 
             };
 
+
             var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', options);
 
             var channel = pusher.subscribe('{{$chatChannel}}');
             channel.bind('new-message', add_message);
+
+            channel.bind('pusher:subscription_succeeded', function(members) {
+                members.each(function (member) {
+                    if (channel.members.me.id != member.id)
+                        showFriendList(member);
+                });
+            });
+            channel.bind('pusher:member_removed', function (member) {
+                console.log('member_removed: ' + member.info.name);
+
+            });
+            channel.bind('pusher:member_added', function (member) {
+               console.log('member_added ' + member.info.name);
+            });
 
         });
 
