@@ -107,15 +107,6 @@
                                 <hr>
                             </div>
                         </div>
-                        {{--<div style="position: fixed;" class="row">--}}
-                        {{--<div class="col-8 col-sm-6">--}}
-                        {{--Level 2: .col-8 .col-sm-6--}}
-
-                        {{--</div>--}}
-                        {{--<div class="col-4 col-sm-6">--}}
-                        {{--Level 2: .col-4 .col-sm-6--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
                     </div>
                 </div>
 
@@ -255,27 +246,9 @@
                 }
 
                 $('.chat-messages').append(message);
-//                var el = createMessageEl();
-//                el.find('.media-heading').html(data.username);
-//                el.find('p').html(data.text);
-//
-//                var messages = $('.chat-messages');
-//                messages.append(el);
-
+                
                 //messages.scrollTop(messages[0].scrollHeight);
 
-
-            }
-
-            function createMessageRight() {
-                return $('#chat-message-template-right');
-//                var text =
-//                console.log(text);
-//                var el = $(text);
-//                return el;
-            }
-
-            function createMessageEl() {
 
             }
 
