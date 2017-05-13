@@ -13,21 +13,6 @@
 use Illuminate\Support\Facades\App;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class TestEvent implements ShouldBroadcast{
-    public $text;
-
-    function __construct($text){
-        $this->text = $text;
-    }
-
-    public function broadcastOn(){
-        // TODO: Implement broadcastOn() method.
-        return ['test-channel'];
-
-    }
-}
-
-
 Route::get('/', 'WelcomeController@welcome');
 
 Auth::routes();
