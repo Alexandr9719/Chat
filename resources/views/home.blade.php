@@ -6,7 +6,8 @@
     <link href="{{asset('css/w3.css')}}" rel="stylesheet">
     <link href="{{asset('css/side_nav.css')}}" rel="stylesheet">
 
-    <div id="mySidenav" class="sidenav">{{-- Sidenav menu for online users --}}
+    {{-- Sidenav menu for online users --}}
+    <div id="mySidenav" class="sidenav">
         <div style="width: 100%; height: 50px; color: black;">
             <img class="side-nav-own-avatar"
                  style="width: 64px; height: 64px; border-radius: 50%; margin-left: 5px;"
@@ -55,7 +56,6 @@
     <link href="{{asset('css/chat_window.css')}}" rel="stylesheet">
 
     {{--Chat's scripts--}}
-    <script src="https://cdn.rawgit.com/samsonjs/strftime/master/strftime-min.js"></script>//{{-- удалить!!! --}}
     <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
 
     {{-- Section for displaying messages --}}
@@ -138,8 +138,10 @@
     <script>
         $(document).ready(function () {
 
+            {{--var messages_test = '{!! $messages !!}'; //without htmlentities() --}}
             var all_messages = '{{$messages}}';
-            all_messages = all_messages.replace(/&quot;/g, "\"").replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<");
+            all_messages = all_messages.replace(/&quot;/g, "\"").replace(/&amp;/g, "&")
+                .replace(/&gt;/g, ">").replace(/&lt;/g, "<");
             var json = JSON.parse(all_messages);
             json.forEach(function (item) {
                 item.username = item.name;
@@ -160,6 +162,9 @@
                         sendMessage();
                     }
                 });
+            }
+            function attachFile() {
+                return false;
             }
 
 
@@ -277,8 +282,6 @@
             });
 
         });
-
-
     </script>
 
 @endsection

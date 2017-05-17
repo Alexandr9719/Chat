@@ -24,19 +24,10 @@
 <body>
 @yield('sidenav')
 <div id="app">
+
     <nav style="position: fixed; top: 0; width: 100%;" class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <input alt="submit" src="{{asset('icons/ic_settings_black_18px.svg')}}"
-                       type="image" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </input>
 
                 @if(Auth::check())
                     <img src="{{asset('icons/ic_menu_black_24px.svg')}}" id="check-side-nav" class="navbar-brand"
@@ -89,6 +80,7 @@
     </nav>
 
     @yield('content')
+
 </div>
 
 <!-- Scripts -->
@@ -107,7 +99,6 @@
         $("#check-side-nav").click(openNav);
     }
     $(document).ready(function () {
-        console.log('app loaded')
         $("#check-side-nav").click(openNav);
         $("html, body").animate({ scrollTop: $(document).height() }, 1);
     });
