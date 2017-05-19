@@ -227,7 +227,7 @@
                 }
 
                 $('.chat-messages').append(message);
-                $('html, body').animate({scrollTop: $(document).height()}, 1000);
+                $('html, body').animate({scrollTop: $(document).height()}, 100);
 
             }
 
